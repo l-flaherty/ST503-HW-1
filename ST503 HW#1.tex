@@ -369,10 +369,21 @@ The model matrix is $\mymatrix{1&x_1\\\vdots &\vdots \\ 1 &x_n}$. This is multip
 \noindent\textbf{\boldmath{b. Write the expression for $X^TX$ and solve the normal equations.}}
 \vspace{\baselineskip}
 
-By the rules of matrix multiplication, $X^TX=\mymatrix{1 & \dots &1\\x_1 & \dots &x_n}\mymatrix{1&x_1\\\vdots &\vdots \\ 1 &x_n}=\mymatrix{1 & \sum\limits_{i=1}^{n}x_i\\\sum\limits_{i=1}^{n}x_i &\sum\limits_{i=1}^{n}x_i^2}$. By assumption of the problem, this is the identity in $\K ^{2\times 2}$, $I=\mymatrix{1&0\\0&1}$.
+By the rules of matrix multiplication, $X^TX=\mymatrix{1 & \dots &1\\x_1 & \dots &x_n}\mymatrix{1&x_1\\\vdots &\vdots \\ 1 &x_n}=\mymatrix{n & \sum\limits_{i=1}^{n}x_i\\\sum\limits_{i=1}^{n}x_i &\sum\limits_{i=1}^{n}x_i^2}$. By assumption of the problem, this is $X^TX=\mymatrix{n&0\\0&1}$.
 \vspace{\baselineskip}
 
-The normal equation is $X^TX \underset{\sim}{\beta}=X^T\underset{\sim}{y}$. Since $X^TX$ was determined to be the identity, we have $\underset{\sim}{\beta}=X^T\underset{\sim}{y}=\mymatrix{1 & \dots &1\\x_1 & \dots &x_n}\mymatrix{y_1 \\ \vdots \\ y_n}=\mymatrix{\sum\limits_{i=1}^{n}y_i\\\sum\limits_{i=1}^{n}x_iy_i}$. 
+The normal equation is $X^TX \underset{\sim}{\beta}=X^T\underset{\sim}{y}$. We then have:
+
+\begin{align*}
+	\mymatrix{n&0\\0&1}\mymatrix{\beta_0\\\beta_1}&=\mymatrix{1 & \dots &1\\x_1 & \dots &x_n}\mymatrix{y_1 \\ \vdots \\ y_n}\\
+	\mymatrix{n\beta_0\\\beta_1}&=\mymatrix{\sum\limits_{i=1}^{n}y_i\\\sum\limits_{i=1}^{n}x_iy_i}
+\end{align*}
+
+And so:
+
+\begin{align*}
+	\hat{\beta_0}=\frac{1}{n}\sum\limits_{i=1}^{n}y_i \hspace{1cm} \hat{\beta_1}=\sum\limits_{i=1}^{n}x_iy_i
+\end{align*}
 
 
 \newpage
